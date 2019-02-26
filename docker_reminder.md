@@ -23,37 +23,35 @@ Syntax of the document...
 2. Installation
 3. Docker running
 
-List all containers running : 
+###### List all containers running : 
 ```
 docker ps
 ```
 
-Inspect specific container configuration : 
+###### Inspect specific container configuration : 
 ```
 docker inspect <CONTAINER_NAME|ID>
 ```
 
-Display container stderr | stdout  : 
+###### Display container stderr | stdout  : 
 ```
 docker logs <CONTAINER_NAME|ID>
 ```
 
-Copy data into a container : 
+###### Copy data into a container : 
 ```
 docker cp <PATH> <CONTAINER_NAME|ID>:<CONTAINER_PATH>
 ```
 
-Export container to .tar archive : 
+###### Export container to .tar archive : 
 ```
 docker export <CONTAINER_NAME|ID> > <FILENAME>.tar
 ```
 
-Import container from a .tar archive : 
+###### Import container from a .tar archive : 
 ```
 docker import <FILENAME>.tar
 ```
-
-
 
 * * *
 ## Dockerfile
