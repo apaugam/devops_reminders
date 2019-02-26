@@ -1,4 +1,4 @@
-# Docker Cheat Sheet
+#Docker Cheat Sheet
 Author : Aël PAUGAM
 Contact : ael.paugam@gmail.com
 GitHub : github.com/apaugam
@@ -30,69 +30,71 @@ docker ps
 
 Inspect specific container configuration : 
 ```
-docker inspect CONTAINER_NAME / CONTAINER_ID
+docker inspect <CONTAINER_NAME|ID>
 ```
 
 Display container stderr | stdout  : 
 ```
-docker logs <container name|id>
+docker logs <CONTAINER_NAME|ID>
 ```
 
 Copy data into a container : 
 ```
-docker cp <data> <container name| id>:<PATH>
+docker cp <PATH> <CONTAINER_NAME|ID>:<CONTAINER_PATH>
 ```
 
 Export container to .tar archive : 
 ```
-docker export <container name|id> > <filename>.tar
+docker export <CONTAINER_NAME|ID> > <FILENAME>.tar
 ```
 
 Import container from a .tar archive : 
 ```
-docker import <filename>.tar
+docker import <FILENAME>.tar
 ```
 
 
 
 * * *
 ## Dockerfile
-Build from an existing image :
+###### Build from an existing image
 ```
-FROM <image>:<tag>
+FROM <IMAGE>:<TAG>
+```
+Will be pulled from the dockerhub or specified repository if not already downloaded. Examples : nginx, alpine, ubuntu, debian, centos
+
+###### Copy the PATH files to a specified container PATH :
+```
+COPY <PATH> <CONTAINER_PATH>
+```
+Usually copying the app true path.
+
+###### Run a specific command when building the image (can have many)
+```
+RUN <CMD>
 ```
 
-Copy the PATH files to a specified container PATH :
-```
-COPY <PATH> <container PATH>
-```
-
-Run a specific command when building the image (can have many) :
-```
-RUN <cmd>
-```
-
-Run a specific command when container starts (can have only one) :
+###### Run a specific command when container starts (can have only one)
 ```
 CMD [“”,””]
 ```
 
-Specify a working directory (should be already created) :
+###### Specify a working directory (should be already created)
 ```
-WORKDIR
-```
-
-Expose a specified port to be accessed :
-```
-EXPOSE <port>
+WORKDIR <CONTAINER_PATH>
 ```
 
-Force to rebuild and not using the cache :
+###### Expose a specified port to be accessed
+```
+EXPOSE <PORT_NB>
+```
+
+###### Force to rebuild and not using the cache
 ```
 ONBUILD COPY | RUN |
 ```
 
-Add labels to images (commonly reverse DNS)
+###### Add labels to images (commonly reverse DNS)
 ```
-LABEL <label>=<value>
+LABEL <LABEL>=<VALUE>
 ```
