@@ -8,9 +8,9 @@ _ _ _
 ## Index
 1. Assumptions
 2. Docker
-	2.1. Docker basics
-	2.2. Installation
-	2.3. Docker running
+	1. Docker basics
+	2. Installation
+	3. Docker running
 3. Dockerfile
 
 * * *
